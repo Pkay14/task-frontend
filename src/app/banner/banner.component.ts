@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 
-
 @Component({
   selector: "app-banner",
   templateUrl: "./banner.component.html",
@@ -9,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
 export class BannerComponent {
   nye = new Date("December 31, 2019 23:59:59");
 
-  timeTillNYE = {};
+  timeTillNYE;
 
   upDateClock() {
     let days, hours, minutes, seconds;
@@ -34,18 +33,13 @@ export class BannerComponent {
   }
 
   makeTwoDigits(n) {
-    return (n < 10 ? "0" : "") + n
+    return (n < 10 ? "0" : "") + n;
   }
 
-  
   constructor() {
-      
-      setInterval(() => {
-        this.upDateClock();
-      }, 1000);
+    setInterval(() => {
       this.upDateClock();
-      
-      
-    
+    }, 1000);
+    this.upDateClock();
   }
 }
